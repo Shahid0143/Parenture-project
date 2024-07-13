@@ -1,0 +1,8 @@
+.nav-box ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    background-color: rgb(216, 210, 210);
+}
