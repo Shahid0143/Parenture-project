@@ -1,9 +1,10 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
-import "../App.css";
+import "../styles/FetchData.css";
+import brokenimage from "../assets/brokenimge.png";
 function FetchData() {
 
-   const url = `https://api9.parentune.com/content/v2/dailyfocus`;
+  //  const url = `https://api9.parentune.com/content/v2/dailyfocus`;
 
    const [productData, setProductData] = useState([]);
 
@@ -35,26 +36,27 @@ function FetchData() {
        .catch((error) => console.error("Error:", error));
 
    };
-
+     
    useEffect(() => {
      fetchdata();
    },[]);
+   console.log(productData)
   return (
-    <div>
-      {productData?.map((el,i)=>{
+    <div className="data-container">
+      {productData?.map((el, i) => {
         return (
-          <div key={i} className='data-box'>
-            <div>
+          <div key={i} className="data-box ">
+            <div className="img-font">
               {" "}
-              <img src={el.thumb}  />
+              <img src={el.thumb} />
               <p>{el.title}</p>
-             <span>{el.duration} min</span>
+              <span>{el.duration} min</span>
             </div>
           </div>
         );
       })}
     </div>
-  )
+  );
 }
 
 export default FetchData
